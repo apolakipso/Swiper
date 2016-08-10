@@ -6,7 +6,7 @@
   "files": ["dist", "src", "*.json", "*.js"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/nolimits4web/Swiper.git"
+    "url": "https://github.com/apolakipso/Swiper.git"
   },
   "keywords": ["swiper", "swipe", "slider", "touch", "ios", "mobile", "cordova", "phonegap", "app", "framework", "carousel", "gallery"],
   "author": "Vladimir Kharlampidi",
