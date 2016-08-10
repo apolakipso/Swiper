@@ -153,6 +153,8 @@ var defaults = {
     paginationHiddenClass: 'swiper-pagination-hidden',
     paginationProgressbarClass: 'swiper-pagination-progressbar',
     lazyLoadingClass: 'swiper-lazy',
+    // Allow passing in wrapper node
+    wrapper: null,
     // Observer
     observer: false,
     observeParents: false,
@@ -369,7 +371,10 @@ if (s.params.grabCursor && s.support.touch) {
 }
 
 // Wrapper
-s.wrapper = s.container.children('.' + s.params.wrapperClass);
+// The wrapper can be passed in as a simple node via parameter "wrapper", it'll be wrapped
+// with the active Dom library in here. The fallback is to find it in the container with
+// the specified "wrapperClass".
+s.wrapper = s.params.wrapper ? $(s.params.wrapper) : s.container.children('.' + s.params.wrapperClass);
 
 // Pagination
 if (s.params.pagination) {
