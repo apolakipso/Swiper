@@ -215,7 +215,7 @@ for (var def in defaults) {
     if (typeof params[def] === 'undefined') {
         params[def] = defaults[def];
     }
-    else if (typeof params[def] === 'object') {
+    else if (typeof params[def] === 'object' && params[def] !== null) {
         for (var deepDef in defaults[def]) {
             if (typeof params[def][deepDef] === 'undefined') {
                 params[def][deepDef] = defaults[def][deepDef];
