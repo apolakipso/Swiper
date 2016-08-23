@@ -1,5 +1,5 @@
 /**
- * Swiper 3.3.1
+ * Swiper 3.3.3
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * 
  * http://www.idangero.us/swiper/
@@ -10,7 +10,7 @@
  * 
  * Licensed under MIT
  * 
- * Released on: August 10, 2016
+ * Released on: August 23, 2016
  */
 (function () {
     'use strict';
@@ -238,7 +238,7 @@
             if (typeof params[def] === 'undefined') {
                 params[def] = defaults[def];
             }
-            else if (typeof params[def] === 'object') {
+            else if (typeof params[def] === 'object' && params[def] !== null) {
                 for (var deepDef in defaults[def]) {
                     if (typeof params[def][deepDef] === 'undefined') {
                         params[def][deepDef] = defaults[def][deepDef];
