@@ -1283,7 +1283,10 @@ s.onClickIndex = function (e) {
   Handle Touches
   ===========================*/
 function findElementInEvent(e, selector) {
-    var el = $(e.target);
+    // Allows passing in a custom function to retrieve a (normalized)
+    // target node from event.
+    var el = $(typeof s.getEventTarget === 'function' ? s.getEventTarget(e) : e.target);
+    
     if (!el.is(selector)) {
         if (typeof selector === 'string') {
             el = el.parents(selector);
