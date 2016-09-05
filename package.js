@@ -1,10 +1,10 @@
 var version = '3.3.6';
 
 Package.describe({
-  name: 'nolimits4web:swiper',
+  name: 'apolakipso:swiper',
   summary: 'iDangero.us Swiper - mobile touch slider with hardware accelerated transitions and native behavior',
   version: version,
-  git: 'https://github.com/nolimits4web/Swiper'
+  git: 'https://github.com/apolakipso/Swiper'
 });
 
 Package.onUse(function (api) {
