@@ -1,5 +1,5 @@
 /**
- * Swiper 3.3.3
+ * Swiper 3.3.4
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * 
  * http://www.idangero.us/swiper/
@@ -10,7 +10,7 @@
  * 
  * Licensed under MIT
  * 
- * Released on: August 23, 2016
+ * Released on: September 5, 2016
  */
 (function (root, factory) {
 	'use strict';
@@ -1321,7 +1321,10 @@
           Handle Touches
           ===========================*/
         function findElementInEvent(e, selector) {
-            var el = $(e.target);
+            // Allows passing in a custom function to retrieve a (normalized)
+            // target node from event.
+            var el = $(typeof s.getEventTarget === 'function' ? s.getEventTarget(e) : e.target);
+            
             if (!el.is(selector)) {
                 if (typeof selector === 'string') {
                     el = el.parents(selector);
