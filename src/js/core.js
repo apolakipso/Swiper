@@ -1285,7 +1285,7 @@ s.onClickIndex = function (e) {
 function findElementInEvent(e, selector) {
     // Allows passing in a custom function to retrieve a (normalized)
     // target node from event.
-    var el = $(typeof s.getEventTarget === 'function' ? s.getEventTarget(e) : e.target);
+    var el = $(typeof s.params.getEventTarget === 'function' ? s.params.getEventTarget(e) : e.target);
     
     if (!el.is(selector)) {
         if (typeof selector === 'string') {
