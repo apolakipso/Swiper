@@ -2,10 +2,37 @@
 [![devDependency Status](https://david-dm.org/apolakipso/Swiper/dev-status.svg)](https://david-dm.org/apolakipso/Swiper?type=dev)
 [![Flattr the original git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=nolimits4web&url=https://github.com/nolimits4web/swiper/&title=Framework7&language=JavaScript&tags=github&category=software)
 
-Swiper
+This Swiper fork
 ==========
 
-**This fork adds a few tweaks to integrate Swiper with Polymer**
+This fork adds a few tweaks to integrate Swiper with Polymer.
+
+## Additional options
+
+The following options have been added to the original [API](http://www.idangero.us/swiper/api/).
+
+### getEventTarget(e) : Function
+
+Pass in this custom function to return the correct target element from the given event.
+This is used to make Swiper's `findElementInEvent(e)` work with both Shady and Shadow DOM,
+effectively resetting Polymer's [event retargeting](https://www.polymer-project.org/1.0/docs/devguide/events#retargeting).
+
+Example:
+```
+options.getEventTarget = function(e) {
+    return Polymer.dom(e).rootTarget;
+};
+```
+
+### wrapper : Node
+
+Used to pass in a wrapper node directly . The wrapper can be passed in as a simple node 
+via parameter `wrapper`, it'll be wrapped with the active DOM library in here.
+The fallback is to find it in the container with the specified `wrapperClass`.
+
+
+Swiper
+==========
 
 Swiper - is the free and most modern mobile touch slider with hardware accelerated transitions and amazing native behavior. It is intended to be used in mobile websites, mobile web apps, and mobile native/hybrid apps. Designed mostly for iOS, but also works great on latest Android, Windows Phone 8 and modern Desktop browsers
 
