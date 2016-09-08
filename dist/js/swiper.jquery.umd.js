@@ -1,5 +1,5 @@
 /**
- * Swiper 3.3.6
+ * Swiper 3.3.7
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * 
  * http://www.idangero.us/swiper/
@@ -10,7 +10,7 @@
  * 
  * Licensed under MIT
  * 
- * Released on: September 5, 2016
+ * Released on: September 8, 2016
  */
 (function (root, factory) {
 	'use strict';
@@ -112,6 +112,7 @@
             centeredSlides: false,
             slidesOffsetBefore: 0, // in px
             slidesOffsetAfter: 0, // in px
+            normalizeSlideIndex: true,
             // Round length
             roundLengths: false,
             // Touches
@@ -1394,7 +1395,7 @@
                     }
                 }
                 else {
-                    s.slideTo(slideToIndex);
+                    s.slideTo(slideToIndex, undefined, undefined, undefined, false);
                 }
             }
         };
@@ -1886,7 +1887,11 @@
         s._slideTo = function (slideIndex, speed) {
             return s.slideTo(slideIndex, speed, true, true);
         };
-        s.slideTo = function (slideIndex, speed, runCallbacks, internal) {
+        s.slideTo = function (slideIndex, speed, runCallbacks, internal, normalizeSlideIndex) {
+            if (normalizeSlideIndex === null || typeof normalizeSlideIndex === 'undefined') {
+                normalizeSlideIndex = s.params.normalizeSlideIndex;
+            }
+            
             if (typeof runCallbacks === 'undefined') runCallbacks = true;
             if (typeof slideIndex === 'undefined') slideIndex = 0;
             if (slideIndex < 0) slideIndex = 0;
@@ -1907,9 +1912,11 @@
             s.updateProgress(translate);
         
             // Normalize slideIndex
-            for (var i = 0; i < s.slidesGrid.length; i++) {
-                if (- Math.floor(translate * 100) >= Math.floor(s.slidesGrid[i] * 100)) {
-                    slideIndex = i;
+            if (normalizeSlideIndex) {
+                for (var i = 0; i < s.slidesGrid.length; i++) {
+                    if (- Math.floor(translate * 100) >= Math.floor(s.slidesGrid[i] * 100)) {
+                        slideIndex = i;
+                    }
                 }
             }
         
