@@ -36,6 +36,8 @@ Enabling the `groupSlides` option prevents selection of single slides, as the cl
 the first slide of the visible group. Set `normalizeSlideIndex: false` to enable selecting single slides on click.
 Defaults to `true`.
 
+*Please note* This is currently only implemented for `loop: false`
+
 Swiper
 ==========
 
