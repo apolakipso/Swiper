@@ -11,7 +11,7 @@ This fork adds a few tweaks to integrate Swiper with Polymer.
 
 The following options have been added to the original [API](http://www.idangero.us/swiper/api/).
 
-### getEventTarget(e) : Function
+### getEventTarget(e): Function
 
 Pass in this custom function to return the correct target element from the given event.
 This is used to make Swiper's `findElementInEvent(e)` work with both Shady and Shadow DOM,
@@ -24,12 +24,17 @@ options.getEventTarget = function(e) {
 };
 ```
 
-### wrapper : Node
+### wrapper: Node
 
 Used to pass in a wrapper node directly . The wrapper can be passed in as a simple node 
 via parameter `wrapper`, it'll be wrapped with the active DOM library in here.
 The fallback is to find it in the container with the specified `wrapperClass`.
 
+### normalizeSlideIndex: Boolean
+
+Enabling the `groupSlides` option prevents selection of single slides, as the click index is normalized to
+the first slide of the visible group. Set `normalizeSlideIndex: false` to enable selecting single slides on click.
+Defaults to `true`.
 
 Swiper
 ==========
