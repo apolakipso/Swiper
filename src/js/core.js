@@ -1870,7 +1870,7 @@ s.slideTo = function (slideIndex, speed, runCallbacks, internal, normalizeSlideI
     s.updateProgress(translate);
 
     // Normalize slideIndex
-    if (normalizeSlideIndex !== false && s.params.normalizeSlideIndex !== false) {
+    if (normalizeSlideIndex !== false || s.params.normalizeSlideIndex !== false) {
         for (var i = 0; i < s.slidesGrid.length; i++) {
             if (- Math.floor(translate * 100) >= Math.floor(s.slidesGrid[i] * 100)) {
                 slideIndex = i;
