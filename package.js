@@ -1,4 +1,4 @@
-var version = '3.3.8';
+var version = '3.3.9';
 
 Package.describe({
   name: 'apolakipso:swiper',
