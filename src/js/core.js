@@ -1170,6 +1170,17 @@ s.onResize = function (forceUpdatePagination) {
     if (s.params.lazyLoading && !slideChangedBySlideTo && s.lazy) {
         s.lazy.load();
     }
+    
+    // switch between single- and multirow-layouts on resize
+    if (s.params.slidesPerColumn > 1) {
+        if (!s.container.hasClass('swiper-container-multirow')) {
+            s.container.addClass('swiper-container-multirow');
+        }
+    }
+    else {
+        s.container.removeClass('swiper-container-multirow');
+    }
+    
     // Return locks after resize
     s.params.allowSwipeToPrev = allowSwipeToPrev;
     s.params.allowSwipeToNext = allowSwipeToNext;
